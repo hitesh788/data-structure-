@@ -2,28 +2,27 @@
 #include <stdlib.h>
 
 int main() {
-    int n,  *arr, i;
-    int sum1 = 0, sum2 = 0;
+    int n, *arr, i;
+    int sum_odd = 0, sum_even = 0;
 
-    printf("Enter the size of the  array: ");
+    printf("Enter the size of the array: ");
     scanf("%d", &n);
 
     arr = (int*)malloc(n * sizeof(int));
 
-    printf("Enter the elements of the first array:\n");
+    printf("Enter the elements of the array:\n");
     for (i = 0; i < n; i++) {
         scanf("%d", &arr[i]);
-        sum1 += arr[i];
+        if (arr[i] % 2 == 0) {
+            sum_even += arr[i];
+        } else {
+            sum_odd += arr[i];
+        }
     }
 
-    printf("Enter the elements of the second array:\n");
-    for (i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
-        sum2 += arr[i];
-    }
+    printf("Sum of even elements: %d\n", sum_even);
+    printf("Sum of odd elements: %d\n", sum_odd);
 
-    printf("Sum of elements in the first array: %d\n", sum1);
-    printf("Sum of elements in the second array: %d\n", sum2);
-
+    free(arr);
     return 0;
 }
