@@ -3,35 +3,32 @@
 #include <stdlib.h>
 
 int main() {
-  int *arr;
-  int n, i;
-  int sum = 0;
+    int *arr;
+    int n, i;
+    int sum = 0;
 
-  printf("Enter the number of elements: ");
-  scanf("%d", &n);
+    printf("Enter the number of elements: ");
+    scanf("%d", &n);
+ 
+    arr = (int*) malloc(n * sizeof(int));
 
-  // allocationg the memory for n numbers of array//
+    if (arr == NULL) {
+        printf("Memory not allocated.\n");
+        exit(0);
+    }
 
-  arr = (int *)malloc(n * sizeof(int));
+      printf("Enter the elements: ");
+    for(i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+    }
 
-  // checking if the array is null and memory is allocated or not//
-  if (arr == NULL) {
-    printf("Memory not allocated.\n");
-    exit(0);
-  }
-  // taking input from user
-  printf("Enter the elements: ");
-  for (i = 0; i < n; i++) {
-    scanf("%d", &arr[i]);
-  }
-  // calculating the sum of element of array
-  for (i = 0; i < n; i++) {
-    sum += arr[i];
-  }
-  // printing the sum of array
-  printf("The sum of array elements: %d\n", sum);
+    for(i = 0; i < n; i++) {
+        sum += arr[i];
+    }
 
-  free(arr);
+    printf("The sum of array elements: %d\n", sum);
+  
+    free(arr);
 
-  return 0;
+    return 0;
 }
