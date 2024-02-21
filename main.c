@@ -1,37 +1,29 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 
 int main() {
-  int *arr;
-  int n, i;
-  int sum = 0;
+    int n,  *arr, i;
+    int sum1 = 0, sum2 = 0;
 
-  printf("Enter the number of elements: ");
-  scanf("%d", &n);
+    printf("Enter the size of the  array: ");
+    scanf("%d", &n);
 
-  // allocationg the memory for n numbers of array//
+    arr = (int*)malloc(n * sizeof(int));
 
-  arr = (int *)malloc(n * sizeof(int));
+    printf("Enter the elements of the first array:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        sum1 += arr[i];
+    }
 
-  // checking if the array is null and memory is allocated or not//
-  if (arr == NULL) {
-    printf("Memory not allocated.\n");
-    exit(0);
-  }
-  // taking input from user
-  printf("Enter the elements: ");
-  for (i = 0; i < n; i++) {
-    scanf("%d", &arr[i]);
-  }
-  // calculating the sum of element of array
-  for (i = 0; i < n; i++) {
-    sum += arr[i];
-  }
-  // printing the sum of array
-  printf("The sum of array elements: %d\n", sum);
+    printf("Enter the elements of the second array:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &arr[i]);
+        sum2 += arr[i];
+    }
 
-  free(arr);
+    printf("Sum of elements in the first array: %d\n", sum1);
+    printf("Sum of elements in the second array: %d\n", sum2);
 
-  return 0;
+    return 0;
 }
